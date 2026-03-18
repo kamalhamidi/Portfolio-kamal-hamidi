@@ -136,31 +136,39 @@ export default function SkillsPage() {
 
             {/* Add form */}
             {addingTo === category && (
-                <div className="flex items-center gap-2 p-3 rounded-lg border border-accent/20 bg-accent/5">
-                    <input
-                        type="text"
-                        value={form.name}
-                        onChange={(e) => setForm({ ...form, name: e.target.value })}
-                        className="admin-input flex-1"
-                        placeholder="Skill name..."
-                        autoFocus
-                    />
-                    <select
-                        value={form.level}
-                        onChange={(e) => setForm({ ...form, level: e.target.value as Skill['level'] })}
-                        className="admin-input w-32"
-                    >
-                        <option>Beginner</option>
-                        <option>Intermediate</option>
-                        <option>Advanced</option>
-                        <option>Expert</option>
-                    </select>
-                    <button onClick={() => handleSave(category)} disabled={saving} className="admin-btn admin-btn-primary text-xs px-3 py-1.5">
-                        {saving ? <Loader2 size={12} className="animate-spin" /> : 'Add'}
-                    </button>
-                    <button onClick={cancelEdit} className="admin-btn admin-btn-secondary text-xs px-3 py-1.5">
-                        <X size={12} />
-                    </button>
+                <div className="p-4 rounded-lg border border-accent/20 bg-accent/5 space-y-3">
+                    <div>
+                        <label className="block text-xs text-text-secondary mb-1">Name</label>
+                        <input
+                            type="text"
+                            value={form.name}
+                            onChange={(e) => setForm({ ...form, name: e.target.value })}
+                            className="admin-input"
+                            placeholder="Enter skill name..."
+                            autoFocus
+                        />
+                    </div>
+                    <div>
+                        <label className="block text-xs text-text-secondary mb-1">Level</label>
+                        <select
+                            value={form.level}
+                            onChange={(e) => setForm({ ...form, level: e.target.value as Skill['level'] })}
+                            className="admin-input"
+                        >
+                            <option>Beginner</option>
+                            <option>Intermediate</option>
+                            <option>Advanced</option>
+                            <option>Expert</option>
+                        </select>
+                    </div>
+                    <div className="flex gap-2 pt-1">
+                        <button onClick={() => handleSave(category)} disabled={saving} className="admin-btn admin-btn-primary text-sm flex-1">
+                            {saving ? <Loader2 size={14} className="animate-spin" /> : 'Add'}
+                        </button>
+                        <button onClick={cancelEdit} className="admin-btn admin-btn-secondary text-sm">
+                            Cancel
+                        </button>
+                    </div>
                 </div>
             )}
 
