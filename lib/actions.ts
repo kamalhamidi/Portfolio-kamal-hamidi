@@ -17,7 +17,7 @@ const profileSchema = z.object({
     email: z.string().email('Invalid email').nullable(),
     github_url: z.union([z.string().url(), z.literal(''), z.null()]),
     linkedin_url: z.union([z.string().url(), z.literal(''), z.null()]),
-    twitter_url: z.union([z.string().url(), z.literal(''), z.null()]),
+    twitter_url: z.union([z.string(), z.null()]),
     website_url: z.union([z.string().url(), z.literal(''), z.null()]),
     photo_url: z.string().nullable(),
     cv_url: z.string().nullable(),

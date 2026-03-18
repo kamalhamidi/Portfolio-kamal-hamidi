@@ -232,24 +232,49 @@ export default function ProfilePage() {
                     </div>
                 </div>
 
-                {/* Social URLs */}
                 <div className="admin-card space-y-4">
                     <h3 className="text-sm font-body font-medium text-text-primary mb-2">Social Links</h3>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                        {(['github_url', 'linkedin_url', 'twitter_url', 'website_url'] as const).map((key) => (
-                            <div key={key}>
-                                <label className="block text-xs text-text-secondary mb-1 capitalize">
-                                    {key.replace('_url', '').replace('_', ' ')}
-                                </label>
-                                <input
-                                    type="url"
-                                    value={profile[key] || ''}
-                                    onChange={(e) => setProfile({ ...profile, [key]: e.target.value })}
-                                    className="admin-input"
-                                    placeholder="https://..."
-                                />
-                            </div>
-                        ))}
+                        <div>
+                            <label className="block text-xs text-text-secondary mb-1">GitHub</label>
+                            <input
+                                type="url"
+                                value={profile.github_url || ''}
+                                onChange={(e) => setProfile({ ...profile, github_url: e.target.value })}
+                                className="admin-input"
+                                placeholder="https://github.com/username"
+                            />
+                        </div>
+                        <div>
+                            <label className="block text-xs text-text-secondary mb-1">LinkedIn</label>
+                            <input
+                                type="url"
+                                value={profile.linkedin_url || ''}
+                                onChange={(e) => setProfile({ ...profile, linkedin_url: e.target.value })}
+                                className="admin-input"
+                                placeholder="https://linkedin.com/in/username"
+                            />
+                        </div>
+                        <div>
+                            <label className="block text-xs text-text-secondary mb-1">WhatsApp</label>
+                            <input
+                                type="tel"
+                                value={profile.twitter_url || ''}
+                                onChange={(e) => setProfile({ ...profile, twitter_url: e.target.value })}
+                                className="admin-input"
+                                placeholder="+212 6XX XXX XXX"
+                            />
+                        </div>
+                        <div>
+                            <label className="block text-xs text-text-secondary mb-1">Website</label>
+                            <input
+                                type="url"
+                                value={profile.website_url || ''}
+                                onChange={(e) => setProfile({ ...profile, website_url: e.target.value })}
+                                className="admin-input"
+                                placeholder="https://yoursite.com"
+                            />
+                        </div>
                     </div>
                 </div>
 

@@ -2,7 +2,7 @@
 
 import { useRef, useState } from 'react';
 import { motion, useInView } from 'framer-motion';
-import { Github, Linkedin, Twitter, Mail, Copy, Check, Send, Loader2 } from 'lucide-react';
+import { Github, Linkedin, MessageCircle, Mail, Copy, Check, Send, Loader2 } from 'lucide-react';
 import { toast } from 'sonner';
 import type { Profile } from '@/types';
 
@@ -43,7 +43,7 @@ export default function ContactSection({ profile }: ContactSectionProps) {
     const socialLinks = [
         { icon: Github, url: profile?.github_url, label: 'GitHub' },
         { icon: Linkedin, url: profile?.linkedin_url, label: 'LinkedIn' },
-        { icon: Twitter, url: profile?.twitter_url, label: 'X / Twitter' },
+        { icon: MessageCircle, url: profile?.twitter_url ? (profile.twitter_url.startsWith('http') ? profile.twitter_url : `https://wa.me/${profile.twitter_url.replace(/[^0-9]/g, '')}`) : null, label: 'WhatsApp' },
         { icon: Mail, url: profile?.email ? `mailto:${profile.email}` : null, label: 'Email' },
     ].filter((l) => l.url);
 
