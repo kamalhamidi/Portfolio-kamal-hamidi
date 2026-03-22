@@ -25,11 +25,11 @@ const jetbrains = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-    title: 'Alex Rivera — Full-Stack Developer & Designer',
+    title: 'Kamal HAMIDI - Data Scientist and IA Engineer',
     description:
         'A passionate full-stack developer crafting digital experiences at the intersection of design and engineering.',
     openGraph: {
-        title: 'Alex Rivera — Full-Stack Developer & Designer',
+        title: 'Kamal HAMIDI - Data Scientist and IA Engineer',
         description:
             'A passionate full-stack developer crafting digital experiences at the intersection of design and engineering.',
         type: 'website',
