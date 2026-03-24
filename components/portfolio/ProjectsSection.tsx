@@ -115,16 +115,16 @@ export default function ProjectsSection({ projects }: ProjectsSectionProps) {
                 )}
 
                 {/* Project Grid */}
-                <div className="columns-1 md:columns-2 lg:columns-3 gap-6 space-y-6">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                     {visibleProjects.map((project, i) => (
                         <motion.div
                             key={project.id}
-                            className="break-inside-avoid"
+                            className="h-full"
                             initial={{ opacity: 0, y: 30 }}
                             animate={inView ? { opacity: 1, y: 0 } : {}}
                             transition={{ delay: 0.3 + i * 0.1 }}
                         >
-                            <div className="glass-card overflow-hidden group">
+                            <div className="glass-card overflow-hidden group h-[420px] flex flex-col">
                                 {/* Image */}
                                 <div className="relative h-48 overflow-hidden bg-bg-elevated">
                                     {project.image_url ? (
@@ -171,15 +171,15 @@ export default function ProjectsSection({ projects }: ProjectsSectionProps) {
                                 </div>
 
                                 {/* Content */}
-                                <div className="p-5">
-                                    <h4 className="text-lg font-body font-medium text-text-primary mb-2">
+                                <div className="p-5 flex-1 flex flex-col overflow-hidden">
+                                    <h4 className="text-lg font-body font-medium text-text-primary mb-2 line-clamp-1">
                                         {project.name}
                                     </h4>
-                                    <p className="text-sm text-text-secondary leading-relaxed mb-4">
+                                    <p className="text-sm text-text-secondary leading-relaxed mb-4 line-clamp-3">
                                         {project.description}
                                     </p>
                                     {project.tags && project.tags.length > 0 && (
-                                        <div className="flex flex-wrap gap-1.5">
+                                        <div className="flex flex-wrap gap-1.5 mt-auto">
                                             {project.tags.map((tag) => (
                                                 <span
                                                     key={tag}
